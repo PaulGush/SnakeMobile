@@ -16,6 +16,7 @@ namespace _Project.Scripts
         [SerializeField] private float m_moveDelay = 1f;
 
         [Header("Debug Values")]
+        [SerializeField] private bool m_isAlive = true;
         [SerializeField] private int m_snakeBodySize = 0;
         [SerializeField] private List<Vector2Int> m_snakeBody = new List<Vector2Int>();
         [SerializeField] private Vector2Int m_gridPosition;
@@ -60,6 +61,7 @@ namespace _Project.Scripts
 
         private void Update()
         {
+            if (!m_isAlive) return;
             Move();
         }
         
@@ -71,6 +73,8 @@ namespace _Project.Scripts
             m_snakeBody.Insert(0, m_gridPosition);
             
             m_gridPosition += m_direction;
+            
+            m_gridPosition = m_levelGrid.ValidateGridPosition(m_gridPosition);
             
             if (m_snakeBody.Count >= m_snakeBodySize + 1)
             {
@@ -87,6 +91,7 @@ namespace _Project.Scripts
                 if (m_gridPosition == bodyPartPosition)
                 {
                     Debug.Log("Game Over");
+                    m_isAlive = false;
                 }
             }
             

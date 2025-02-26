@@ -29,16 +29,24 @@ namespace _Project.Scripts
         
         public void SnakeMoved(List<Vector2Int> snakeGridPositions)
         {
-            if (snakeGridPositions[0].x > Width || snakeGridPositions[0].x < -Width || snakeGridPositions[0].y > Height || snakeGridPositions[0].y < -Height)
-            {
-                Debug.Log("Game Over");
-            }
-
             if (snakeGridPositions[0] != m_foodGridPosition) return;
             
             Destroy(m_activeFoodObject);
             SpawnFood(snakeGridPositions);
             OnFoodEaten?.Invoke();
+        }
+        
+        public Vector2Int ValidateGridPosition(Vector2Int gridPosition)
+        {
+            int x = gridPosition.x;
+            int y = gridPosition.y;
+            
+            if (x < -Width) x = Width - 1;
+            if (x > Width) x = -Width;
+            if (y < -Height) y = Height - 1;
+            if (y > Height) y = -Height;
+            
+            return new Vector2Int(x, y);
         }
     }
 }

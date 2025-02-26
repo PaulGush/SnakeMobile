@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 1771143332}
   - component: {fileID: 1771143334}
   - component: {fileID: 1771143333}
+  - component: {fileID: 1771143335}
   m_Layer: 5
   m_Name: ScoreText (TMP)
   m_TagString: Untagged
@@ -804,6 +805,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771143331}
   m_CullTransparentMesh: 1
+--- !u!114 &1771143335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771143331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd3901a3de9456aacddfe407e31322e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_levelGrid: {fileID: 11400000, guid: ada8978d048a710459607aa5bb654c85, type: 2}
+  m_scoreText: {fileID: 1771143333}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
