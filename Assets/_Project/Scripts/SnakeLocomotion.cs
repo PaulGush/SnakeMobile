@@ -1,6 +1,5 @@
-using System;
 using _Project.Scripts.Input;
-using Unity.VisualScripting;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Project.Scripts
@@ -9,7 +8,8 @@ namespace _Project.Scripts
     {
         [Header("References")]
         [SerializeField] private InputReader m_inputReader;
-
+        [InlineEditor, SerializeField] private LevelGrid m_levelGrid;
+        
         [Header("Settings")]
         [SerializeField] private float m_moveDelay = 1f;
         
@@ -35,6 +35,7 @@ namespace _Project.Scripts
             m_direction = Vector2Int.right;
             
             transform.position = new Vector3(m_gridPosition.x, m_gridPosition.y, 0);
+            m_levelGrid.SpawnFood();
         }
         private void OnMove(Vector2 newValue)
         {
@@ -55,6 +56,7 @@ namespace _Project.Scripts
             m_gridPosition += m_direction;
             
             this.transform.position = new Vector3(m_gridPosition.x, m_gridPosition.y, 0);
+            m_levelGrid.SnakeMoved(m_gridPosition);
             
             m_nextMoveTime = Time.time + m_moveDelay;
         }

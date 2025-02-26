@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2c805a2acb4b3fac15037030779d6d, type: 3}
+  m_Name: Mobile
+  m_EditorClassIdentifier: 
+  Width: 2
+  Height: 4
+  FoodPrefab: {fileID: 5135061684135099908, guid: 1ce3a477fe6cf9d4ca35b19bb7d504d3, type: 3}
